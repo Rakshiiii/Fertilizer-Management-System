@@ -1,0 +1,525 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Zoom & Push Navigation Demo</title>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 24px;
+  font-family: 'Roboto Condensed';
+}
+
+body {
+  background-color: #00c7be;
+}
+
+nav {
+  position: fixed;
+  height: 100%;
+  width: 65%;
+}
+nav::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+nav > ul {
+  width: 80%;
+  display: inline-block;
+  vertical-align: middle;
+}
+nav > ul > li {
+  display: block;
+  text-transform: uppercase;
+  line-height: 2;
+  font-size: .8rem;
+  padding-left: 30%;
+}
+
+.hamburger {
+  left: 1rem;
+  top: 1rem;
+  width: 1.5rem;
+  height: .7rem;
+  position: fixed;
+  z-index: 2;
+  cursor: pointer;
+}
+.hamburger > span {
+  display: block;
+  background-color: #262626;
+  height: 20%;
+  margin-bottom: 20%;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fafafa;
+  color: #262626;
+  padding: 4rem;
+  overflow: auto;
+  transition: .2s ease;
+}
+@media screen and (orientation: portrait) {
+  .container {
+    padding: 4rem 1rem;
+  }
+}
+.container a {
+  color: #00c7be;
+}
+.container > p {
+  padding-bottom: 1em;
+}
+.container > h4 {
+  margin: 1em 0;
+}
+
+@media screen and (orientation: portrait) {
+  nav.active + .container {
+    transform: translateX(55%) scale(0.8);
+    box-shadow: 0 0 30px 5px rgba(38, 38, 38, 0.3);
+  }
+}
+@media screen and (orientation: landscape) {
+  nav.active + .container {
+    transform: translateX(35%) scale(0.8);
+    box-shadow: 0 0 30px 5px rgba(38, 38, 38, 0.3);
+  }
+}
+</style>
+</head>
+
+<body>
+<nav>
+  <ul>
+    <li>Home</li>
+    <li>Categories</li>
+    <li>Jobs</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+<div class="container">
+  <div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+</div>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+$(".hamburger").click(function() {
+  $("nav").toggleClass("active");
+})
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<form action='' class='form' id="submit_form">
+  <p class='field required'>
+    <label class='label required' for='name'>Name of Crop</label>
+    <input class='text-input' id='name' name='name' required type='text'>
+  </p>
+  <p class='field required half'>
+    <label class='label' for='quantity'>Quantity</label>
+    <input class='text-input' id='quantity' name='quantity' required type='number'>
+  </p>
+  <p class='field half'>
+    <label class='label' for='phone'>Area of Farm</label>
+    <input class='text-input' id='area' name='area' type='number'>
+  </p>
+  <p class='field half required error'>
+    <label class='label' for='login'>Climate</label>
+    <input class='text-input' id='climate' name='climate' required type='text'>
+  </p>
+  <div class='field'>
+    <label class='label'>Type of Soil</label>
+    <ul class='checkboxes'>
+      <li class='checkbox'>
+        <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='black'>
+        <label class='checkbox-label' for='choice-0'>black</label>
+      </li>
+      <li class='checkbox'>
+        <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='red'>
+        <label class='checkbox-label' for='choice-1'>red</label>
+      </li>
+      <li class='checkbox'>
+        <input class='checkbox-input' id='choice-2' name='choice' type='checkbox' value='laterite'>
+        <label class='checkbox-label' for='choice-2'>laterite</label>
+      </li>
+      <li class='checkbox'>
+        <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='alluvial'>
+        <label class='checkbox-label' for='choice-3'>alluvial</label>
+      </li>
+      <li class='checkbox'>
+        <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='saline'>
+        <label class='checkbox-label' for='choice-4'>saline</label>
+      </li>
+    </ul>
+  </div>
+  <p class='field half'>
+    <label class='label' for='select'>Position</label>
+    <select class='select' id='select'>
+      <option selected value=''></option>
+      <option value='farmer'>Farmer</option>
+      <option value='crop analyst'>Crop analyst</option>
+      <option value='crop researcher'>Crop researcher</option>
+    </select>
+  </p>
+  <p class='field half'>
+    <input class='button' type='submit' value='Submit'>
+  </p>
+</form>
+<style>
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+
+@media screen and (min-width: 40em) {
+  body {
+    font-size: 1.25em;
+  }
+}
+
+.form .label, .form .checkbox-input + label, .form .option-input + label, .form .text-input, .form .textarea, .form .select, .customSelect, .form .message, .form .button {
+  padding: 0.75em 1em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  line-height: normal;
+  border-radius: 0;
+  border: none;
+  background: none;
+  display: block;
+}
+
+.form .label {
+  font-weight: bold;
+  color: black;
+  padding-top: 0;
+  padding-left: 0;
+  letter-spacing: 0.025em;
+  font-size: 1.125em;
+  line-height: 1.25;
+  position: relative;
+  z-index: 100;
+}
+.required .form .label:after, .form .required .label:after {
+  content: " *";
+  color: #E8474C;
+  font-weight: normal;
+  font-size: 0.75em;
+  vertical-align: top;
+}
+
+.form .checkbox-input + label, .form .option-input + label, .form .text-input, .form .textarea, .form .select, .customSelect {
+  font: inherit;
+  line-height: normal;
+  width: 100%;
+  box-sizing: border-box;
+  background: #222222;
+  color: white;
+  position: relative;
+}
+.form .checkbox-input + label:placeholder, .form .option-input + label:placeholder, .form .text-input:placeholder, .form .textarea:placeholder, .form .select:placeholder, .customSelect:placeholder {
+  color: white;
+}
+.form .checkbox-input + label:-webkit-autofill, .form .option-input + label:-webkit-autofill, .form .text-input:-webkit-autofill, .form .textarea:-webkit-autofill, .form .select:-webkit-autofill, .customSelect:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #111111 inset;
+  -webkit-text-fill-color: white;
+  border-top-color: #111111;
+  border-left-color: #111111;
+  border-right-color: #111111;
+}
+.form .checkbox-input + label:not(:focus):not(:active).error, .form .option-input + label:not(:focus):not(:active).error, .form .text-input:not(:focus):not(:active).error, .form .textarea:not(:focus):not(:active).error, .form .select:not(:focus):not(:active).error, .customSelect:not(:focus):not(:active).error, .error .form .checkbox-input + label:not(:focus):not(:active), .form .error .checkbox-input + label:not(:focus):not(:active), .error .form .option-input + label:not(:focus):not(:active), .form .error .option-input + label:not(:focus):not(:active), .error .form .text-input:not(:focus):not(:active), .form .error .text-input:not(:focus):not(:active), .error .form .textarea:not(:focus):not(:active), .form .error .textarea:not(:focus):not(:active), .error .form .select:not(:focus):not(:active), .form .error .select:not(:focus):not(:active), .error .customSelect:not(:focus):not(:active) {
+  background-size: 8px 8px;
+  background-image: linear-gradient(135deg, rgba(232, 71, 76, 0.5), rgba(232, 71, 76, 0.5) 25%, transparent 25%, transparent 50%, rgba(232, 71, 76, 0.5) 50%, rgba(232, 71, 76, 0.5) 75%, transparent 75%, transparent);
+  background-repeat: repeat;
+}
+.form:not(.has-magic-focus) .checkbox-input + label:active, .form:not(.has-magic-focus) .option-input + label:active, .form:not(.has-magic-focus) .text-input:active, .form:not(.has-magic-focus) .textarea:active, .form:not(.has-magic-focus) .select:active, .form:not(.has-magic-focus) .customSelect:active, .form:not(.has-magic-focus) .customSelect.customSelectFocus, .form:not(.has-magic-focus) .checkbox-input + label:focus, .form:not(.has-magic-focus) .option-input + label:focus, .form:not(.has-magic-focus) .text-input:focus, .form:not(.has-magic-focus) .textarea:focus, .form:not(.has-magic-focus) .select:focus, .form:not(.has-magic-focus) .customSelect:focus {
+  background: #4E4E4E;
+}
+
+.form .message {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  font-size: 0.625em;
+  color: white;
+}
+
+.form .checkbox-input, .form .option-input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.form .checkbox-input + label, .form .option-input + label {
+  display: inline-block;
+  width: auto;
+  color: #4E4E4E;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+.form .checkbox-input:focus + label, .form .option-input:focus + label, .form .checkbox-input:active + label, .form .option-input:active + label {
+  color: #4E4E4E;
+}
+.form .checkbox-input:checked + label, .form .option-input:checked + label {
+  color: white;
+}
+
+.form .button {
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+  background: #E8474C;
+  color: white;
+  font-weight: bold;
+  width: auto;
+  margin-left: auto;
+  font-weight: bold;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.form .button:hover, .form .button:focus, .form .button:active {
+  color: white;
+  border-color: white;
+}
+.form .button:active {
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+
+body {
+  padding: 2em;
+}
+
+.form {
+  max-width: 40em;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.form .field {
+  width: 100%;
+  margin: 0 0 1.5em 0;
+}
+@media screen and (min-width: 40em) {
+  .form .field.half {
+    width: calc(50% - 1px);
+  }
+}
+.form .field.last {
+  margin-left: auto;
+}
+.form .textarea {
+  max-width: 100%;
+}
+.form .select {
+  text-indent: 0.01px;
+  text-overflow: "" !important;
+}
+.form .select::-ms-expand {
+  display: none;
+}
+.form .checkboxes, .form .options {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+.form .checkbox, .form .option {
+  float: left;
+  margin: 1px;
+}
+
+.customSelect {
+  pointer-events: none;
+}
+.customSelect:after {
+  content: "";
+  pointer-events: none;
+  width: 0.5em;
+  height: 0.5em;
+  border-style: solid;
+  border-color: white;
+  border-width: 0 3px 3px 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.625em;
+  right: 1em;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.customSelect.customSelectFocus:after {
+  border-color: white;
+}
+
+.magic-focus {
+  position: absolute;
+  z-index: 0;
+  width: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.15);
+  transition: top 0.2s, left 0.2s, width 0.2s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  will-change: top, left, width;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+</style>
+<script>
+  (function() {
+  var magicFocus;
+
+  (function() {
+    var logo, logo_css;
+    logo = '<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>codepen-logo</title><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zM7.139 21.651l1.35-1.35a.387.387 0 0 0 0-.54l-3.49-3.49a.387.387 0 0 0-.54 0l-1.35 1.35a.39.39 0 0 0 0 .54l3.49 3.49a.38.38 0 0 0 .54 0zm6.922.153l2.544-2.543a.722.722 0 0 0 0-1.018l-6.582-6.58a.722.722 0 0 0-1.018 0l-2.543 2.544a.719.719 0 0 0 0 1.018l6.58 6.579c.281.28.737.28 1.019 0zm14.779-5.85l-7.786-7.79a.554.554 0 0 0-.788 0l-5.235 5.23a.558.558 0 0 0 0 .789l7.79 7.789c.216.216.568.216.785 0l5.236-5.236a.566.566 0 0 0 0-.786l-.002.003zm-3.89 2.806a.813.813 0 1 1 0-1.626.813.813 0 0 1 0 1.626z" fill="#FFF" fill-rule="evenodd"/></svg>';
+    logo_css = '.mM{display:block;border-radius:50%;box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);position:fixed;bottom:1em;right:1em;-webkit-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-transition:all 240ms ease-in-out;transition:all 240ms ease-in-out;z-index:9999;opacity:0.75}.mM svg{display:block}.mM:hover{opacity:1;-webkit-transform:scale(1.125);transform:scale(1.125)}';
+    document.head.insertAdjacentHTML('beforeend', '<style>' + logo_css + '</style>');
+    document.body.insertAdjacentHTML('beforeend', '<a href="https://codepen.io/mican/" target="_blank" class="mM">' + logo + '</a>');
+  })();
+
+  magicFocus = class magicFocus {
+    constructor(parent) {
+      var i, input, len, ref;
+      this.show = this.show.bind(this);
+      this.hide = this.hide.bind(this);
+      this.parent = parent;
+      if (!this.parent) {
+        return;
+      }
+      this.focus = document.createElement('div');
+      this.focus.classList.add('magic-focus');
+      this.parent.classList.add('has-magic-focus');
+      this.parent.appendChild(this.focus);
+      ref = this.parent.querySelectorAll('input, textarea, select');
+      for (i = 0, len = ref.length; i < len; i++) {
+        input = ref[i];
+        input.addEventListener('focus', function() {
+          return window.magicFocus.show();
+        });
+        input.addEventListener('blur', function() {
+          return window.magicFocus.hide();
+        });
+      }
+    }
+
+    show() {
+      var base, base1, el;
+      if (!(typeof (base = ['INPUT', 'SELECT', 'TEXTAREA']).includes === "function" ? base.includes((el = document.activeElement).nodeName) : void 0)) {
+        return;
+      }
+      clearTimeout(this.reset);
+      if (typeof (base1 = ['checkbox', 'radio']).includes === "function" ? base1.includes(el.type) : void 0) {
+        el = document.querySelector(`[for=${el.id}]`);
+      }
+      this.focus.style.top = `${el.offsetTop || 0}px`;
+      this.focus.style.left = `${el.offsetLeft || 0}px`;
+      this.focus.style.width = `${el.offsetWidth || 0}px`;
+      return this.focus.style.height = `${el.offsetHeight || 0}px`;
+    }
+
+    hide() {
+      var base, el;
+      if (!(typeof (base = ['INPUT', 'SELECT', 'TEXTAREA', 'LABEL']).includes === "function" ? base.includes((el = document.activeElement).nodeName) : void 0)) {
+        this.focus.style.width = 0;
+      }
+      return this.reset = setTimeout(function() {
+        return window.magicFocus.focus.removeAttribute('style');
+      }, 200);
+    }
+
+  };
+
+  // initialize
+  window.magicFocus = new magicFocus(document.querySelector('.form'));
+
+  document.getElementById("submit_form").addEventListener("submit",function(e){
+    e.preventDefault();
+    var xhttp=new XMLHttpRequest();
+    xhttp.open("POST","https://fast-ridge-14540.herokuapp.com/",true)
+    xhttp.onreadystatechange=function(){
+      if(this.readyState==4 && this.status==200){
+        var x=JSON.parse(this.responseText);
+        console.log(x);
+      }
+    }
+    var val;
+    for(i=0;i<4;i++){
+      if(document.getElementById("choice-"+i.toString()).checked){
+        val=document.getElementById("choice-"+i.toString()).value
+      }
+    }
+    xhttp.send(JSON.stringify({name:document.getElementById("name"),quantity:document.getElementById("quantity"),climate:document.getElementById("climate"),position:document.getElementById("select").options[document.getElementById("select").selectedIndex].text,type:val}))
+  });
+
+  $(function() {
+    return $('.select').customSelect();
+  });
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiPGFub255bW91cz4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQSxNQUFBOztFQUFHLENBQUEsUUFBQSxDQUFBLENBQUE7QUFDRCxRQUFBLElBQUEsRUFBQTtJQUFBLElBQUEsR0FBTztJQUNQLFFBQUEsR0FBVztJQUNYLFFBQVEsQ0FBQyxJQUFJLENBQUMsa0JBQWQsQ0FBaUMsV0FBakMsRUFBOEMsU0FBQSxHQUFZLFFBQVosR0FBdUIsVUFBckU7SUFDQSxRQUFRLENBQUMsSUFBSSxDQUFDLGtCQUFkLENBQWlDLFdBQWpDLEVBQThDLGlFQUFBLEdBQW9FLElBQXBFLEdBQTJFLE1BQXpIO0VBSkMsQ0FBQSxDQUFILENBQUE7O0VBTU0sYUFBTixNQUFBLFdBQUE7SUFFRSxXQUFhLE9BQUEsQ0FBQTtBQUVYLFVBQUEsQ0FBQSxFQUFBLEtBQUEsRUFBQSxHQUFBLEVBQUE7VUFhRixDQUFBLFdBQUEsQ0FBQTtVQWFBLENBQUEsV0FBQSxDQUFBO01BNUJjLElBQUMsQ0FBQTtNQUViLElBQUEsQ0FBYyxJQUFDLENBQUEsTUFBZjtBQUFBLGVBQUE7O01BRUEsSUFBQyxDQUFBLEtBQUQsR0FBUyxRQUFRLENBQUMsYUFBVCxDQUF1QixLQUF2QjtNQUNULElBQUMsQ0FBQSxLQUFLLENBQUMsU0FBUyxDQUFDLEdBQWpCLENBQXFCLGFBQXJCO01BQ0EsSUFBQyxDQUFBLE1BQU0sQ0FBQyxTQUFTLENBQUMsR0FBbEIsQ0FBc0IsaUJBQXRCO01BQ0EsSUFBQyxDQUFBLE1BQU0sQ0FBQyxXQUFSLENBQW9CLElBQUMsQ0FBQSxLQUFyQjtBQUVBO01BQUEsS0FBQSxxQ0FBQTs7UUFDRSxLQUFLLENBQUMsZ0JBQU4sQ0FBdUIsT0FBdkIsRUFBZ0MsUUFBQSxDQUFBLENBQUE7aUJBQzlCLE1BQU0sQ0FBQyxVQUFVLENBQUMsSUFBbEIsQ0FBQTtRQUQ4QixDQUFoQztRQUVBLEtBQUssQ0FBQyxnQkFBTixDQUF1QixNQUF2QixFQUErQixRQUFBLENBQUEsQ0FBQTtpQkFDN0IsTUFBTSxDQUFDLFVBQVUsQ0FBQyxJQUFsQixDQUFBO1FBRDZCLENBQS9CO01BSEY7SUFUVzs7SUFlYixJQUFNLENBQUEsQ0FBQTtBQUVKLFVBQUEsSUFBQSxFQUFBLEtBQUEsRUFBQTtNQUFBLElBQUEsZ0ZBQTJDLENBQUMsU0FBVSxDQUFDLEVBQUEsR0FBSyxRQUFRLENBQUMsYUFBZixDQUE2QixDQUFDLG1CQUFwRjtBQUFBLGVBQUE7O01BRUEsWUFBQSxDQUFhLElBQUMsQ0FBQSxLQUFkO01BRUEsMEVBQXNFLENBQUMsU0FBVSxFQUFFLENBQUMsY0FBcEY7UUFBQSxFQUFBLEdBQUssUUFBUSxDQUFDLGFBQVQsQ0FBdUIsQ0FBQSxLQUFBLENBQUEsQ0FBUSxFQUFFLENBQUMsRUFBWCxDQUFjLENBQWQsQ0FBdkIsRUFBTDs7TUFFQSxJQUFDLENBQUEsS0FBSyxDQUFDLEtBQUssQ0FBQyxHQUFiLEdBQW1CLENBQUEsQ0FBQSxDQUFHLEVBQUUsQ0FBQyxTQUFILElBQWMsQ0FBakIsQ0FBbUIsRUFBbkI7TUFDbkIsSUFBQyxDQUFBLEtBQUssQ0FBQyxLQUFLLENBQUMsSUFBYixHQUFvQixDQUFBLENBQUEsQ0FBRyxFQUFFLENBQUMsVUFBSCxJQUFlLENBQWxCLENBQW9CLEVBQXBCO01BQ3BCLElBQUMsQ0FBQSxLQUFLLENBQUMsS0FBSyxDQUFDLEtBQWIsR0FBcUIsQ0FBQSxDQUFBLENBQUcsRUFBRSxDQUFDLFdBQUgsSUFBZ0IsQ0FBbkIsQ0FBcUIsRUFBckI7YUFDckIsSUFBQyxDQUFBLEtBQUssQ0FBQyxLQUFLLENBQUMsTUFBYixHQUFzQixDQUFBLENBQUEsQ0FBRyxFQUFFLENBQUMsWUFBSCxJQUFpQixDQUFwQixDQUFzQixFQUF0QjtJQVhsQjs7SUFhTixJQUFNLENBQUEsQ0FBQTtBQUVKLFVBQUEsSUFBQSxFQUFBO01BQUEsSUFBQSx5RkFBb0UsQ0FBQyxTQUFVLENBQUMsRUFBQSxHQUFLLFFBQVEsQ0FBQyxhQUFmLENBQTZCLENBQUMsbUJBQTdHO1FBQUEsSUFBQyxDQUFBLEtBQUssQ0FBQyxLQUFLLENBQUMsS0FBYixHQUFxQixFQUFyQjs7YUFFQSxJQUFDLENBQUEsS0FBRCxHQUFTLFVBQUEsQ0FBVyxRQUFBLENBQUEsQ0FBQTtlQUNsQixNQUFNLENBQUMsVUFBVSxDQUFDLEtBQUssQ0FBQyxlQUF4QixDQUF3QyxPQUF4QztNQURrQixDQUFYLEVBRVAsR0FGTztJQUpMOztFQTlCUixFQU5BOzs7RUE4Q0EsTUFBTSxDQUFDLFVBQVAsR0FBb0IsSUFBSSxVQUFKLENBQWUsUUFBUSxDQUFDLGFBQVQsQ0FBdUIsT0FBdkIsQ0FBZjs7RUFFcEIsQ0FBQSxDQUFFLFFBQUEsQ0FBQSxDQUFBO1dBQ0EsQ0FBQSxDQUFFLFNBQUYsQ0FBWSxDQUFDLFlBQWIsQ0FBQTtFQURBLENBQUY7QUFoREEiLCJzb3VyY2VzQ29udGVudCI6WyJkbyAtPlxuICBsb2dvID0gJzxzdmcgd2lkdGg9XCIzMlwiIGhlaWdodD1cIjMyXCIgdmlld0JveD1cIjAgMCAzMiAzMlwiIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIj48dGl0bGU+Y29kZXBlbi1sb2dvPC90aXRsZT48cGF0aCBkPVwiTTE2IDMyQzcuMTYzIDMyIDAgMjQuODM3IDAgMTZTNy4xNjMgMCAxNiAwczE2IDcuMTYzIDE2IDE2LTcuMTYzIDE2LTE2IDE2ek03LjEzOSAyMS42NTFsMS4zNS0xLjM1YS4zODcuMzg3IDAgMCAwIDAtLjU0bC0zLjQ5LTMuNDlhLjM4Ny4zODcgMCAwIDAtLjU0IDBsLTEuMzUgMS4zNWEuMzkuMzkgMCAwIDAgMCAuNTRsMy40OSAzLjQ5YS4zOC4zOCAwIDAgMCAuNTQgMHptNi45MjIuMTUzbDIuNTQ0LTIuNTQzYS43MjIuNzIyIDAgMCAwIDAtMS4wMThsLTYuNTgyLTYuNThhLjcyMi43MjIgMCAwIDAtMS4wMTggMGwtMi41NDMgMi41NDRhLjcxOS43MTkgMCAwIDAgMCAxLjAxOGw2LjU4IDYuNTc5Yy4yODEuMjguNzM3LjI4IDEuMDE5IDB6bTE0Ljc3OS01Ljg1bC03Ljc4Ni03Ljc5YS41NTQuNTU0IDAgMCAwLS43ODggMGwtNS4yMzUgNS4yM2EuNTU4LjU1OCAwIDAgMCAwIC43ODlsNy43OSA3Ljc4OWMuMjE2LjIxNi41NjguMjE2Ljc4NSAwbDUuMjM2LTUuMjM2YS41NjYuNTY2IDAgMCAwIDAtLjc4NmwtLjAwMi4wMDN6bS0zLjg5IDIuODA2YS44MTMuODEzIDAgMSAxIDAtMS42MjYuODEzLjgxMyAwIDAgMSAwIDEuNjI2elwiIGZpbGw9XCIjRkZGXCIgZmlsbC1ydWxlPVwiZXZlbm9kZFwiLz48L3N2Zz4nXG4gIGxvZ29fY3NzID0gJy5tTXtkaXNwbGF5OmJsb2NrO2JvcmRlci1yYWRpdXM6NTAlO2JveC1zaGFkb3c6MCAxcHggM3B4IHJnYmEoMCwgMCwgMCwgMC4xMiksIDAgMXB4IDJweCByZ2JhKDAsIDAsIDAsIDAuMjQpO3Bvc2l0aW9uOmZpeGVkO2JvdHRvbToxZW07cmlnaHQ6MWVtOy13ZWJraXQtdHJhbnNmb3JtLW9yaWdpbjo1MCUgNTAlO3RyYW5zZm9ybS1vcmlnaW46NTAlIDUwJTstd2Via2l0LXRyYW5zaXRpb246YWxsIDI0MG1zIGVhc2UtaW4tb3V0O3RyYW5zaXRpb246YWxsIDI0MG1zIGVhc2UtaW4tb3V0O3otaW5kZXg6OTk5OTtvcGFjaXR5OjAuNzV9Lm1NIHN2Z3tkaXNwbGF5OmJsb2NrfS5tTTpob3ZlcntvcGFjaXR5OjE7LXdlYmtpdC10cmFuc2Zvcm06c2NhbGUoMS4xMjUpO3RyYW5zZm9ybTpzY2FsZSgxLjEyNSl9J1xuICBkb2N1bWVudC5oZWFkLmluc2VydEFkamFjZW50SFRNTCAnYmVmb3JlZW5kJywgJzxzdHlsZT4nICsgbG9nb19jc3MgKyAnPC9zdHlsZT4nXG4gIGRvY3VtZW50LmJvZHkuaW5zZXJ0QWRqYWNlbnRIVE1MICdiZWZvcmVlbmQnLCAnPGEgaHJlZj1cImh0dHBzOi8vY29kZXBlbi5pby9taWNhbi9cIiB0YXJnZXQ9XCJfYmxhbmtcIiBjbGFzcz1cIm1NXCI+JyArIGxvZ28gKyAnPC9hPidcbiAgcmV0dXJuO1xuY2xhc3MgbWFnaWNGb2N1c1xuICBcbiAgY29uc3RydWN0b3I6IChAcGFyZW50KSAtPlxuICAgIFxuICAgIHJldHVybiB1bmxlc3MgQHBhcmVudFxuICAgICAgICBcbiAgICBAZm9jdXMgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50ICdkaXYnXG4gICAgQGZvY3VzLmNsYXNzTGlzdC5hZGQgJ21hZ2ljLWZvY3VzJ1xuICAgIEBwYXJlbnQuY2xhc3NMaXN0LmFkZCAnaGFzLW1hZ2ljLWZvY3VzJ1xuICAgIEBwYXJlbnQuYXBwZW5kQ2hpbGQgQGZvY3VzXG5cbiAgICBmb3IgaW5wdXQgaW4gQHBhcmVudC5xdWVyeVNlbGVjdG9yQWxsKCdpbnB1dCwgdGV4dGFyZWEsIHNlbGVjdCcpICAgICAgXG4gICAgICBpbnB1dC5hZGRFdmVudExpc3RlbmVyICdmb2N1cycsIC0+XG4gICAgICAgIHdpbmRvdy5tYWdpY0ZvY3VzLnNob3coKVxuICAgICAgaW5wdXQuYWRkRXZlbnRMaXN0ZW5lciAnYmx1cicsIC0+XG4gICAgICAgIHdpbmRvdy5tYWdpY0ZvY3VzLmhpZGUoKVxuICAgIFxuICBzaG93OiA9PlxuICAgIFxuICAgIHJldHVybiB1bmxlc3MgWydJTlBVVCcsJ1NFTEVDVCcsJ1RFWFRBUkVBJ10uaW5jbHVkZXM/IChlbCA9IGRvY3VtZW50LmFjdGl2ZUVsZW1lbnQpLm5vZGVOYW1lXG4gICAgXG4gICAgY2xlYXJUaW1lb3V0KEByZXNldClcbiAgICAgICAgICAgICAgICAgICBcbiAgICBlbCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCJbZm9yPSN7ZWwuaWR9XVwiKSBpZiBbJ2NoZWNrYm94JywgJ3JhZGlvJ10uaW5jbHVkZXM/IGVsLnR5cGVcblxuICAgIEBmb2N1cy5zdHlsZS50b3AgPSBcIiN7ZWwub2Zmc2V0VG9wfHwwfXB4XCJcbiAgICBAZm9jdXMuc3R5bGUubGVmdCA9IFwiI3tlbC5vZmZzZXRMZWZ0fHwwfXB4XCJcbiAgICBAZm9jdXMuc3R5bGUud2lkdGggPSBcIiN7ZWwub2Zmc2V0V2lkdGh8fDB9cHhcIlxuICAgIEBmb2N1cy5zdHlsZS5oZWlnaHQgPSBcIiN7ZWwub2Zmc2V0SGVpZ2h0fHwwfXB4XCJcbiAgICAgIFxuICBoaWRlOiA9PlxuICAgICAgIFxuICAgIEBmb2N1cy5zdHlsZS53aWR0aCA9IDAgdW5sZXNzIFsnSU5QVVQnLCdTRUxFQ1QnLCdURVhUQVJFQScsICdMQUJFTCddLmluY2x1ZGVzPyAoZWwgPSBkb2N1bWVudC5hY3RpdmVFbGVtZW50KS5ub2RlTmFtZVxuICAgICAgICBcbiAgICBAcmVzZXQgPSBzZXRUaW1lb3V0IC0+XG4gICAgICB3aW5kb3cubWFnaWNGb2N1cy5mb2N1cy5yZW1vdmVBdHRyaWJ1dGUoJ3N0eWxlJylcbiAgICAsIDIwMFxuXG4jIGluaXRpYWxpemVcbiAgICBcbndpbmRvdy5tYWdpY0ZvY3VzID0gbmV3IG1hZ2ljRm9jdXMgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLmZvcm0nKVxuXG4kIC0+XG4gICQoJy5zZWxlY3QnKS5jdXN0b21TZWxlY3QoKSJdfQ==
+//# sourceURL=coffeescript
+</script>
+</body>
+</html>
